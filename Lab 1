@@ -1,0 +1,116 @@
+You are working for a social media analytics company. Your team is responsible for analyzing user engagement metrics to provide insights to clients. One of your tasks involves identifying trending topics based on user comments. Each comment is represented as a tuple containing the comment text and the number of likes it received. Your goal is to develop a function to identify the top trending topics based on the frequency of specific keywords mentioned in the comments.
+Design a Python function identify_trending_topics (comments: List[Tuple[str, int]], keywords: List[str]) -> List[str] that takes a list of comment tuples and a list of keywords as input. Each comment tuple consists of the comment text and the number of likes it received. The function should identify the top trending topics by counting the frequency of each keyword mentioned in the comments and return a list of keywords sorted in descending order of their frequency.
+Ensure your implementation efficiently handles cases where multiple keywords have the same frequency. Provide explanations for your design choices and any assumptions made.
+
+comments = [
+    ("Great product, love the features!", 50),
+    ("The customer service was terrible, won't recommend.", 20),
+    ("Best purchase ever, highly recommended.", 100),
+    ("The delivery was delayed, very disappointed.", 10),
+    ("Amazing quality, exceeded my expectations.", 80)
+]
+
+
+keywords = ["product", "customer service", "recommend", "delivery", "quality"]
+
+
+keyword_freq = {keyword: 0 for keyword in keywords}
+
+for comment, likes in comments:
+    for keyword in keywords:
+        if keyword in comment.lower():
+            keyword_freq[keyword] += 1
+
+
+sorted_keywords = sorted(keyword_freq.items(), key=lambda x: x[1], reverse=True)
+
+top_trending_topics = [keyword for keyword, freq in sorted_keywords]
+
+print("Top Trending Topics:")
+for topic in top_trending_topics:
+    print(topic)
+Sample Output :
+Top Trending Topics:
+product
+quality
+recommend
+delivery
+customer service
+
+************************************************************************************************************************************************
+
+You are part of a team developing an inventory management system for a retail company. The system needs to track product availability across multiple warehouses. Each warehouse is represented as a list of tuples, where each tuple contains the product identifier and the quantity available. Your task is to implement a feature that checks if a given product is available in any of the warehouses and returns the total quantity available.
+Design a Python program to implement the inventory management system. Create lists to represent three warehouses, each containing tuples of product identifiers and quantities available. Then, prompt the user to enter a product identifier and check if the product is available in any of the warehouses. If available, display the total quantity available across all warehouses; otherwise, display a message indicating that the product is out of stock.
+
+warehouse1 = [("product1", 50), ("product2", 30), ("product3", 20)]
+warehouse2 = [("product4", 40), ("product2", 20), ("product5", 60)]
+warehouse3 = [("product6", 70), ("product3", 10), ("product7", 25)]
+
+product_id = input("Enter product identifier: ")
+
+total_quantity = 0
+found = False
+
+for warehouse in [warehouse1, warehouse2, warehouse3]:
+    for item in warehouse:
+        if item[0] == product_id:
+            total_quantity += item[1]
+            found = True
+            break  
+
+if found:
+    print(f"Total quantity of product {product_id}: {total_quantity}")
+else:
+    print("Product is out of stock.")
+
+Sample Output :
+Total quantity of product product3: 30
+
+***********************************************************************************************************************************************
+
+
+
+You work for a finance company that manages investment portfolios for clients. Your team is tasked with analyzing the performance of various investment instruments over time. Each instrument's performance is represented as a list of tuples, where each tuple contains the date and the corresponding value of the investment. Your task is to identify the investment instrument that has shown the highest growth rate over a specified period.
+Design a Python program to analyze the performance of investment instruments. Create lists to represent the performance data of three investment instruments over time. Then, prompt the user to enter a start and end date for the analysis period. Calculate the growth rate for each instrument over the specified period and determine which instrument has shown the highest growth rate. Display the name of the instrument along with its growth rate.
+instrument1 = [("2023-01-01", 1000), ("2023-03-01", 1200), ("2023-06-01", 1400)]
+instrument2 = [("2023-01-01", 2000), ("2023-03-01", 1800), ("2023-06-01", 2500)]
+instrument3 = [("2023-01-01", 1500), ("2023-03-01", 1700), ("2023-06-01", 1800)]
+
+start_date = input("Enter start date (YYYY-MM-DD): ")
+end_date = input("Enter end date (YYYY-MM-DD): ")
+
+max_growth_rate = -1
+best_instrument = None
+
+def date_to_int(date):
+    year, month, day = map(int, date.split('-'))
+    return year * 10000 + month * 100 + day
+
+for instrument, data in [("Instrument 1", instrument1), ("Instrument 2", instrument2), ("Instrument 3", instrument3)]:
+    start_value = None
+    end_value = None
+
+    for date, value in data:
+        if date_to_int(date) == date_to_int(start_date):
+            start_value = value
+        elif date_to_int(date) == date_to_int(end_date):
+            end_value = value
+
+    if start_value is not None and end_value is not None:
+        growth_rate = ((end_value - start_value) / start_value) * 100
+        print(f"{instrument}: Growth rate = {growth_rate:.2f}%")
+
+        if growth_rate > max_growth_rate:
+            max_growth_rate = growth_rate
+            
+print(f"The instrument with the highest growth rate is {best_instrument} with a growth rate of {max_growth_rate:.2f}%.")
+
+
+Sample Output :
+Instrument 1: Growth rate = 40.00%
+Instrument 2: Growth rate = 25.00%
+Instrument 3: Growth rate = 20.00%
+The instrument with the highest growth rate is Instrument 1 with a growth rate of 40.00%.
+
+
+*****************************************************************************************************************************************************************************
