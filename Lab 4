@@ -1,0 +1,236 @@
+low level 
+
+1. Check if two strings are anagrams:
+
+```python
+def are_anagrams(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    
+    count = {}
+    
+    for char in str1:
+        count[char] = count.get(char, 0) + 1
+    
+    for char in str2:
+        if char not in count or count[char] == 0:
+            return False
+        count[char] -= 1
+    
+    return True
+
+# Test
+print(are_anagrams("listen", "silent"))  # Output: True
+print(are_anagrams("hello", "world"))    # Output: False
+```
+
+2. Count characters in a string:
+
+```python
+def count_characters(string):
+    count = {}
+    for char in string.lower():
+        if char.isalpha():
+            count[char] = count.get(char, 0) + 1
+    
+    for char, freq in count.items():
+        print(f"'{char}': {freq}")
+
+# Test
+count_characters("Hello World")
+```
+
+3. Reverse a string:
+
+```python
+def reverse_string(string):
+    reversed_str = ""
+    for char in string:
+        reversed_str = char + reversed_str
+    return reversed_str
+
+# Test
+print(reverse_string("hello"))  # Output: "olleh"
+```
+
+4. Remove duplicates from a string:
+
+```python
+def remove_duplicates(string):
+    unique_chars = ""
+    for char in string:
+        if char not in unique_chars:
+            unique_chars += char
+    return unique_chars
+
+# Test
+print(remove_duplicates("hello"))  # Output: "helo"
+```
+
+5. Find the longest word in a sentence:
+
+```python
+def longest_word(sentence):
+    words = sentence.split()
+    longest = ""
+    for word in words:
+        if len(word) > len(longest):
+            longest = word
+    return longest
+
+# Test
+print(longest_word("This is a test sentence"))  
+
+
+*************************************************************************
+
+Medium level 
+
+1. Frequency of words in a string:
+
+```python
+import string
+
+def word_frequency(string):
+    words = string.lower().split()
+    frequency = {}
+
+    for word in words:
+        word = word.strip(string.punctuation)
+        frequency[word] = frequency.get(word, 0) + 1
+
+    return frequency
+
+# Test
+print(word_frequency("Hello, world! This is a test. hello world"))  
+```
+
+2. Count vowels in a string:
+
+```python
+def count_vowels(string):
+    vowels = "aeiouAEIOU"
+    count = 0
+
+    for char in string:
+        if char in vowels:
+            count += 1
+
+    return count
+
+# Test
+print(count_vowels("Hello World"))  # Output: 3
+```
+
+3. Check if two strings are rotations of each other:
+
+```python
+def are_rotations(str1, str2):
+    if len(str1) != len(str2):
+        return False
+
+    concatenated = str1 + str1
+
+    if str2 in concatenated:
+        return True
+    else:
+        return False
+
+# Test
+print(are_rotations("abcd", "cdab"))  # Output: True
+```
+
+4. Check if a string is a pangram:
+
+```python
+import string
+
+def is_pangram(string):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    string = string.lower()
+
+    for char in alphabet:
+        if char not in string:
+            return False
+
+    return True
+
+# Test
+print(is_pangram("The quick brown fox jumps over the lazy dog"))  # Output: True
+```
+
+5. Check if a string is a valid palindrome:
+
+```python
+import string
+
+def is_valid_palindrome(string):
+    alphanumeric_string = ''.join(char.lower() for char in string if char.isalnum())
+    reversed_string = ""
+
+    for char in alphanumeric_string:
+        reversed_string = char + reversed_string
+
+    return alphanumeric_string == reversed_string
+
+# Test
+print(is_valid_palindrome("A man, a plan, a canal, Panama!")) 
+
+**************************************************************************************************************
+
+High level 
+
+Here are the implementations for each task:
+
+1. Password strength checker:
+
+```python
+def password_strength(password):
+    if len(password) < 6:
+        print("Weak: Password is less than 6 characters long")
+    elif 6 <= len(password) <= 10:
+        print("Medium: Password is between 6 and 10 characters long")
+    else:
+        print("Strong: Password is more than 10 characters long")
+
+# Test
+password_strength("12345")   # Output: Weak
+password_strength("password") # Output: Medium
+password_strength("securepassword123") # Output: Strong
+```
+
+2. Generate email address:
+
+```python
+def generate_email(first_name, last_name):
+    email = f"{first_name.lower()}.{last_name.lower()}@example.com"
+    return email
+
+# Test
+print(generate_email("John", "Doe"))  # Output: john.doe@example.com
+```
+
+3. Username validation:
+
+```python
+def validate_username(username):
+    if not username.isalnum():
+        print("Username can only contain alphanumeric characters (letters and numbers)")
+        return False
+    elif not username[0].isalpha():
+        print("Username must start with a letter")
+        return False
+    elif not 6 <= len(username) <= 12:
+        print("Username must be between 6 and 12 characters long")
+        return False
+    else:
+        print("Username is valid")
+        return True
+
+# Test
+validate_username("user123")   # Output: Username is valid
+validate_username("123user")   # Output: Username must start with a letter
+validate_username("user@123")  # Output: Username can only contain alphanumeric characters (letters and numbers)
+validate_username("longusername12345")  # Output: Username must be between 6 and 12 characters long
+
+*******************************************************************************************************************************†********
