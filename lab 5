@@ -1,0 +1,108 @@
+1. **Check if a given number is positive, negative, or zero:**
+   
+    num = float(input("Enter a number: "))
+    if num > 0:
+        print("The number is Positive.")
+    elif num < 0:
+        print("The number is Negative.")
+    else:
+        print("The number is Zero.")
+    ```
+
+2. **Check if a user is eligible to vote:**
+  
+    age = int(input("Enter your age: "))
+    if age >= 18:
+        print("You are eligible to vote.")
+    else:
+        print("You are not eligible to vote.")
+    ```
+
+3. **Determine if a given year is a leap year:**
+   
+    year = int(input("Enter a year: "))
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(f"{year} is a leap year.")
+    else:
+        print(f"{year} is not a leap year.")
+    ```
+
+4. **Check if a user has a fever:**
+  
+    temperature = float(input("Enter your temperature in Fahrenheit: "))
+    if temperature >= 100.4:
+        print("You have a fever.")
+    else:
+        print("You do not have a fever.")
+    ```
+
+5. **Find the largest among three numbers:**
+   
+    a = float(input("Enter the first number: "))
+    b = float(input("Enter the second number: "))
+    c = float(input("Enter the third number: "))
+    largest = max(a, b, c)
+    print(f"The largest number is {largest}.")
+    ```
+
+6. **Calculate the total cost of a meal, including tax and tip:**
+   
+    meal_cost = float(input("Enter the meal cost: "))
+    tax_rate = float(input("Enter the tax rate (as a percentage): "))
+    tip_rate = float(input("Enter the tip rate (as a percentage): "))
+    
+    tax = meal_cost * (tax_rate / 100)
+    tip = meal_cost * (tip_rate / 100)
+    total_cost = meal_cost + tax + tip
+    
+    print(f"The total cost of the meal is ${total_cost:.2f}.")
+    ```
+
+7. **Classify a triangle based on the lengths of its sides:**
+   
+    a = float(input("Enter the length of the first side: "))
+    b = float(input("Enter the length of the second side: "))
+    c = float(input("Enter the length of the third side: "))
+    
+    if a == b == c:
+        print("The triangle is Equilateral.")
+    elif a == b or b == c or a == c:
+        print("The triangle is Isosceles.")
+    else:
+        print("The triangle is Scalene.")
+    ```
+
+8. **Determine whether a given year is a leap year or a common year:**
+   
+    year = int(input("Enter a year: "))
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(f"{year} is a Leap year with 366 days.")
+    else:
+        print(f"{year} is a Common year with 365 days.")
+    ```
+
+9. **Check whether a character is a vowel or a consonant:**
+  
+    char = input("Enter a character: ")
+    vowels = 'aeiouAEIOU'
+    
+    if len(char) == 1 and char.isalpha():
+        if char in vowels:
+            print("The character is a Vowel.")
+        else:
+            print("The character is a Consonant.")
+    else:
+        print("Invalid input. Please enter a single alphabetic character.")
+    ```
+
+10. **Output three numbers in ascending order:**
+  
+    a = float(input("Enter the first number: "))
+    b = float(input("Enter the second number: "))
+    c = float(input("Enter the third number: "))
+    
+    numbers = [a, b, c]
+    numbers.sort()
+    
+    print("The numbers in ascending order are:", numbers)
+    ```
