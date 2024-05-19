@@ -62,3 +62,28 @@ rd_rf(rf_path)
 an_rs(rf_path, af_path)
 print("\nAnalysis File Content:")
 rd_rf(af_path)
+
+output
+
+Result File Content:
+Tharun,1234,O,A,B,C,D,40,80.00
+Jeavi,5678,O,O,A,A,B,46,92.00
+Shakthi,9101,U,A,B,C,D,30,60.00
+Prakash,1121,O,A,A,B,B,45,90.00
+
+Analysis File Content:
+90% and above:
+Jeavi
+Prakash
+
+80% to 89.99%:
+Tharun
+
+70% to 79.99%:
+None
+
+below 70%:
+None
+
+arrear:
+Shakthi
