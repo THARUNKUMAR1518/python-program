@@ -1,0 +1,64 @@
+import random
+
+gp = {'O': 10, 'A': 9, 'B': 8, 'C': 7, 'D': 6, 'U': 0}
+
+students = [
+    {"name": "Tharun", "reg_no": 1234, "grades": ['O', 'A', 'B', 'C', 'D']},
+    {"name": "Jeavi", "reg_no": 5678, "grades": ['O', 'O', 'A', 'A', 'B']},
+    {"name": "Shakthi", "reg_no": 9101, "grades": ['U', 'A', 'B', 'C', 'D']},
+    {"name": "Prakash", "reg_no": 1121, "grades": ['O', 'A', 'A', 'B', 'B']}
+]
+
+def cr_rf(fp):
+    with open(fp, 'w') as f:
+        for s in students:
+            total = sum(gp[g] for g in s['grades'])
+            pct = (total / (5 * 10)) * 100
+            f.write(f"{s['name']},{s['reg_no']},{','.join(s['grades'])},{total},{pct:.2f}\n")
+
+def rd_rf(fp):
+    with open(fp, 'r') as f:
+        content = f.read()
+        print(content)
+
+def an_rs(in_fp, out_fp):
+    with open(in_fp, 'r') as inf, open(out_fp, 'w') as outf:
+        groups = {
+            '90% and above': [],
+            '80% to 89.99%': [],
+            '70% to 79.99%': [],
+            'below 70%': [],
+            'arrear': []
+        }
+        
+        for line in inf:
+            n, rn, *grades, total, pct = line.strip().split(',')
+            pct = float(pct)
+            if 'U' in grades:
+                groups['arrear'].append(n)
+            elif pct >= 90:
+                groups['90% and above'].append(n)
+            elif pct >= 80:
+                groups['80% to 89.99%'].append(n)
+            elif pct >= 70:
+                groups['70% to 79.99%'].append(n)
+            else:
+                groups['below 70%'].append(n)
+        
+        for cat, studs in groups.items():
+            outf.write(f"{cat}:\n")
+            if studs:
+                outf.write("\n".join(studs) + "\n")
+            else:
+                outf.write("None\n")
+            outf.write("\n")
+
+rf_path = 'result.txt'
+af_path = 'analysis.txt'
+
+cr_rf(rf_path)
+print("Result File Content:")
+rd_rf(rf_path)
+an_rs(rf_path, af_path)
+print("\nAnalysis File Content:")
+rd_rf(af_path)
