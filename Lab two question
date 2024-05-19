@@ -17,7 +17,7 @@ print("Dictionary with names as keys and ages as values:", people_dict)
 Sample Output: 
 Dictionary with names as keys and ages as values: {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 
-*****************************************************************************************************************************************************************************************
+****************************************************************************************************************************************************************************************
 
 2. You have a list of tuples, each containing a student's name and their corresponding scores in three subjects (Math, Physics, Chemistry). Write a Python program to sort the list of tuples based on the total score (sum of scores in all subjects) in descending order.
 # Sample list of tuples containing (name, Math score, Physics score, Chemistry score)
