@@ -1,15 +1,19 @@
-import random
-
 gp = {'O': 10, 'A': 9, 'B': 8, 'C': 7, 'D': 6, 'U': 0}
 
-students = [
-    {"name": "Tharun", "reg_no": 1234, "grades": ['O', 'A', 'B', 'C', 'D']},
-    {"name": "Jeavi", "reg_no": 5678, "grades": ['O', 'O', 'A', 'A', 'B']},
-    {"name": "Shakthi", "reg_no": 9101, "grades": ['U', 'A', 'B', 'C', 'D']},
-    {"name": "Prakash", "reg_no": 1121, "grades": ['O', 'A', 'A', 'B', 'B']}
-]
+def get_student_details():
+    students = []
+    base_reg_no = 65432101
+    num_students = int(input("Enter the number of students: "))
+    
+    for i in range(num_students):
+        name = input(f"Enter the name of student {i+1}: ")
+        grades = input(f"Enter the grades of {name} separated by commas: ").split(',')
+        reg_no = base_reg_no + i
+        students.append({"name": name, "reg_no": reg_no, "grades": grades})
+    
+    return students
 
-def cr_rf(fp):
+def cr_rf(fp, students):
     with open(fp, 'w') as f:
         for s in students:
             total = sum(gp[g] for g in s['grades'])
@@ -53,23 +57,28 @@ def an_rs(in_fp, out_fp):
                 outf.write("None\n")
             outf.write("\n")
 
-rf_path = 'result.txt'
-af_path = 'analysis.txt'
+students = get_student_details()
+rf_path = '/path/to/directory/result.txt'
+af_path = '/path/to/directory/analysis.txt'
 
-cr_rf(rf_path)
+cr_rf(rf_path, students)
 print("Result File Content:")
 rd_rf(rf_path)
+
 an_rs(rf_path, af_path)
 print("\nAnalysis File Content:")
 rd_rf(af_path)
 
 output
 
-Result File Content:
-Tharun,1234,O,A,B,C,D,40,80.00
-Jeavi,5678,O,O,A,A,B,46,92.00
-Shakthi,9101,U,A,B,C,D,30,60.00
-Prakash,1121,O,A,A,B,B,45,90.00
+Tharun
+O,A,B,C,D
+Jeavi
+O,O,A,A,B
+Shakthi
+U,A,B,C,D
+Prakash
+O,A,A,B,B
 
 Analysis File Content:
 90% and above:
