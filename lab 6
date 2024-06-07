@@ -1,0 +1,115 @@
+low
+1. Function `show_employee()`:
+
+def show_employee(name, salary=9000):
+    print("Name:", name)
+    print("Salary:", salary)
+
+show_employee("John", 10000)
+show_employee("Alice")
+
+2. Function `func1()`:
+
+def func1(*args):
+    for arg in args:
+        print(arg)
+
+func1(1, 2, 3, "hello", [4, 5])
+
+3. Program defining a function to print name and age:
+
+def print_info(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+print_info("John", 30)
+
+4. Python function to return a new list with distinct elements:
+
+def unique_list(lst):
+    return list(set(lst))
+sample_list = [1, 2, 3, 3, 3, 3, 4, 5]
+unique_list = unique_list(sample_list)
+print("Sample List:", sample_list)
+print("Unique List:", unique_list)
+********************************************************************************************
+Medium
+
+1. Function `power`:
+
+def power(base, exp=2):
+    return base ** exp
+
+print(power(2, 3))  # Output: 8
+print(power(3))     # Output: 9 (default exponent is 2)
+
+
+2. Function `reverse_list`:
+
+def reverse_list(lst):
+    return lst[::-1]
+
+
+print(reverse_list([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
+
+3. Function `compute`:
+
+def compute(num1, num2):
+    return num1 + num2, num1 - num2, num1 * num2, num1 / num2
+print(compute(10, 5))  # Output: (15, 5, 50, 2.0)
+
+
+4. Function `student_info`:
+
+def student_info(name, **kwargs):
+    info = f"Student: {name}"
+    for key, value in kwargs.items():
+        info += f", {key}: {value}"
+    print(info)
+
+student_info("Alice", age=20, grade="A", school="XYZ High School")
+
+
+5. Generator function to generate prime numbers up to a specified limit:
+def generate_primes(limit):
+    for num in range(2, limit + 1):
+        if all(num % i != 0 for i in range(2, int(num**0.5) + 1)):
+            yield num
+
+prime_generator = generate_primes(20)
+print("Prime numbers up to 20:", list(prime_generator))
+
+
+6. Higher-order function `apply_function`:
+
+def apply_function(func, values):
+    return [func(value) for value in values]
+
+values = [1, 2, 3, 4, 5]
+squared_values = apply_function(lambda x: x**2, values)
+print("Squared values:", squared_values)
+
+
+7. Generator function yielding Fibonacci numbers indefinitely:
+
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+fibonacci_generator = fibonacci()
+print("First 10 Fibonacci numbers:", [next(fibonacci_generator) for _ in range(10)])
+
+
+8. Recursive function `factorial`:n
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+print(factorial(5))  
+Output: 120
+****************************************************************************************************************
+High
