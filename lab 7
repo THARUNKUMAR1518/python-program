@@ -105,7 +105,7 @@ print("First 10 Fibonacci numbers:", [next(fibonacci_generator) for _ in range(1
 8. Recursive function `factorial`:n
 def factorial(n):
     if n == 0:
-        return 1
+        return
     else:
         return n * factorial(n-1)
 
@@ -113,3 +113,65 @@ print(factorial(5))
 Output: 120
 ****************************************************************************************************************
 High
+def count_departments(departments):
+    # Base case: If the dictionary is empty, return 0
+    if not departments:
+        return 0
+    
+    # Start with counting the current level departments
+    count = len(departments)
+    
+    # Recursively count the sub-departments
+    for sub_department in departments.values():
+        count += count_departments(sub_department)
+    
+    return count
+
+# Example usage:
+org_chart = {
+    "HR": {
+        "Recruitment": {},
+        "Employee Relations": {}
+    },
+    "IT": {
+        "Infrastructure": {},
+        "Development": {
+            "Frontend": {},
+            "Backend": {}
+        }
+    },
+    "Finance": {}
+}
+
+print(count_departments(org_chart))  # Output: 7
+
+
+2.
+def print_pascals_triangle(n):
+    if n <= 0:
+        return
+    
+    triangle = [[1]]
+
+    for i in range(1, n):
+        row = [1]
+        for j in range(1, i):
+            row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+        row.append(1)
+        triangle.append(row)
+    
+    max_width = len(" ".join(map(str, triangle[-1])))
+    
+    for row in triangle:
+        row_str = " ".join(map(str, row))
+        print(row_str.center(max_width))
+
+# Example usage:
+print_pascals_triangle(5)
+
+output
+    1    
+   1 1   
+  1 2 1  
+ 1 3 3 1 
+1 4 6 4 1
