@@ -1,0 +1,160 @@
+### Low Level
+
+#### 1. Temperature Conversion Module
+
+# temperature_conversion.py
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def celsius_to_kelvin(celsius):
+    return celsius + 273.15
+
+def kelvin_to_celsius(kelvin):
+    return kelvin - 273.15
+```
+
+# main_temperature.py
+import temperature_conversion as tc
+
+celsius = 25
+fahrenheit = tc.celsius_to_fahrenheit(celsius)
+kelvin = tc.celsius_to_kelvin(celsius)
+
+print(f"{celsius}°C is {fahrenheit}°F")
+print(f"{celsius}°C is {kelvin}K")
+
+fahrenheit = 77
+celsius = tc.fahrenheit_to_celsius(fahrenheit)
+print(f"{fahrenheit}°F is {celsius}°C")
+```
+
+**Output:**
+```
+25°C is 77.0°F
+25°C is 298.15K
+77°F is 25.0°C
+```
+
+#### 2. Currency Conversion Module
+
+
+# currency_conversion.py
+
+def usd_to_eur(usd, rate):
+    return usd * rate
+
+def eur_to_usd(eur, rate):
+    return eur / rate
+
+def usd_to_gbp(usd, rate):
+    return usd * rate
+
+def gbp_to_usd(gbp, rate):
+    return gbp / rate
+```
+
+
+# main_currency.py
+import currency_conversion as cc
+
+usd = 100
+eur_rate = 0.85  # Example conversion rate
+gbp_rate = 0.75  # Example conversion rate
+
+eur = cc.usd_to_eur(usd, eur_rate)
+gbp = cc.usd_to_gbp(usd, gbp_rate)
+
+print(f"${usd} USD is €{eur} EUR")
+print(f"${usd} USD is £{gbp} GBP")
+
+eur = 85
+usd = cc.eur_to_usd(eur, eur_rate)
+print(f"€{eur} EUR is ${usd} USD")
+```
+
+**Output:**
+```
+$100 USD is €85.0 EUR
+$100 USD is £75.0 GBP
+€85 EUR is $100.0 USD
+```
+***********************************************************************************************************88
+### Medium Level
+
+#### 1. Arithmetic Operations Module
+
+
+# arithmetic_operations.py
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Division by zero is not allowed"
+    return a / b
+
+
+# main_arithmetic.py
+import arithmetic_operations as ao
+
+a = 10
+b = 5
+
+print(f"{a} + {b} = {ao.add(a, b)}")
+print(f"{a} - {b} = {ao.subtract(a, b)}")
+print(f"{a} * {b} = {ao.multiply(a, b)}")
+print(f"{a} / {b} = {ao.divide(a, b)}")
+
+c = 0
+print(f"{a} / {c} = {ao.divide(a, c)}")
+```
+
+**Output:**
+```
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+10 / 5 = 2.0
+10 / 0 = Division by zero is not allowed
+```
+*****************************************************************************************************************************
+### High Level
+
+#### 1. Decimal to Binary and Binary to Decimal Module
+
+# number_conversion.py
+
+def decimal_to_binary(decimal):
+    return bin(decimal).replace("0b", "")
+
+def binary_to_decimal(binary):
+    return int(binary, 2)
+
+
+# main_conversion.py
+import number_conversion as nc
+
+decimal = 10
+binary = nc.decimal_to_binary(decimal)
+print(f"Decimal {decimal} is Binary {binary}")
+
+binary = "1010"
+decimal = nc.binary_to_decimal(binary)
+print(f"Binary {binary} is Decimal {decimal}")
+```
+
+**Output:**
+```
+Decimal 10 is Binary 1010
+Binary 1010 is Decimal 10
