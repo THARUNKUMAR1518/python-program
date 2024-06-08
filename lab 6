@@ -1,0 +1,398 @@
+### Low Level
+
+#### 1. Multiplication Table
+
+```python
+def multiplication_table(number):
+    for i in range(1, 11):
+        print(f"{number} x {i} = {number * i}")
+
+# Example usage:
+multiplication_table(5)
+```
+
+**Output:**
+```
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+```
+
+#### 2. Print Each Fruit in a List
+
+```python
+fruits = ["Apple", "Banana", "Cherry"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+**Output:**
+```
+Apple
+Banana
+Cherry
+```
+
+#### 3. Print Even Numbers Between 1 and 20
+
+```python
+for i in range(2, 21, 2):
+    print(i)
+```
+
+**Output:**
+```
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+```
+
+#### 4. Calculate Factorial of a Given Number
+
+```python
+def factorial(number):
+    result = 1
+    for i in range(1, number + 1):
+        result *= i
+    return result
+
+# Example usage:
+print(factorial(5))
+```
+
+**Output:**
+```
+120
+```
+
+#### 5. Check if a Given Number is Prime
+
+```python
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+# Example usage:
+print(is_prime(29))
+```
+
+**Output:**
+```
+True
+```
+
+#### 6. Count the Number of Vowels in a Given String
+
+```python
+def count_vowels(string):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for char in string:
+        if char in vowels:
+            count += 1
+    return count
+
+# Example usage:
+print(count_vowels("Artificial Intelligence and Machine Learning"))
+```
+
+**Output:**
+```
+15
+```
+**************************************************************************************************************************************************
+### Medium Level
+
+#### 1. Number Pattern
+
+```python
+def number_pattern():
+    for i in range(1, 10):
+        print(f"{i} " * i)
+
+# Example usage:
+number_pattern()
+```
+
+**Output:**
+```
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+6 6 6 6 6 6 
+7 7 7 7 7 7 7 
+8 8 8 8 8 8 8 8 
+9 9 9 9 9 9 9 9 9 
+```
+
+#### 2. Star Pattern
+
+```python
+def star_pattern():
+    n = 5
+    for i in range(1, n + 1):
+        print("* " * i)
+    for i in range(n - 1, 0, -1):
+        print("* " * i)
+
+# Example usage:
+star_pattern()
+```
+
+**Output:**
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+```
+
+#### 3. Alphabet Pattern 'D'
+
+```python
+def print_D():
+    for i in range(7):
+        if i == 0 or i == 6:
+            print(" ****")
+        else:
+            print("*   *")
+
+# Example usage:
+print_D()
+```
+
+**Output:**
+```
+ ****
+*   *
+*   *
+*   *
+*   *
+*   *
+ ****
+```
+
+#### 4. Alphabet Pattern 'M'
+
+```python
+def print_M():
+    for i in range(7):
+        if i == 0:
+            print("*     *")
+        elif i == 1:
+            print("*     *")
+        elif i == 2:
+            print("* * * *")
+        elif i == 3:
+            print("*  *  *")
+        else:
+            print("*     *")
+
+# Example usage:
+print_M()
+```
+
+**Output:**
+```
+*     *
+*     *
+* * * *
+*  *  *
+*     *
+*     *
+*     *
+```
+
+#### 5. Alphabet Pattern 'O'
+
+```python
+def print_O():
+    for i in range(7):
+        if i == 0 or i == 6:
+            print(" *** ")
+        else:
+            print("*   *")
+
+# Example usage:
+print_O()
+```
+
+**Output:**
+```
+ *** 
+*   *
+*   *
+*   *
+*   *
+*   *
+ *** 
+```
+
+#### 6. Right-Angled Triangle of Numbers
+
+```python
+def right_angled_triangle_numbers(n):
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            print(j, end="")
+        print()
+
+# Example usage:
+right_angled_triangle_numbers(5)
+```
+
+**Output:**
+```
+1
+12
+123
+1234
+12345
+```
+
+#### 7. Inverted Right-Angled Triangle of Stars
+
+```python
+def inverted_right_angled_triangle_stars(n):
+    for i in range(n, 0, -1):
+        print("*" * i)
+
+# Example usage:
+inverted_right_angled_triangle_stars(5)
+```
+
+**Output:**
+```
+*****
+****
+***
+**
+*
+```
+
+#### 8. Pyramid of Stars
+
+```python
+def pyramid_of_stars(n):
+    for i in range(n):
+        print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+
+# Example usage:
+pyramid_of_stars(4)
+```
+
+**Output:**
+```
+   *
+  ***
+ *****
+*******
+```
+
+#### 9. Diamond Pattern of Stars
+
+```python
+def diamond_pattern_stars(n):
+    for i in range(n):
+        print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+    for i in range(n - 2, -1, -1):
+        print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+
+# Example usage:
+diamond_pattern_stars(5)
+```
+
+**Output:**
+```
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+```
+
+#### 10. Right-Angled Triangle of Incrementing Numbers
+
+```python
+def right_angled_triangle_incrementing_numbers(n):
+    num = 1
+    for i in range(1, n + 1):
+        for j in range(i):
+            print(num, end=" ")
+            num += 1
+        print()
+
+# Example usage:
+right_angled_triangle_incrementing_numbers(5)
+```
+
+**Output:**
+```
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+```
+*******************************************************************************************************************
+### High Level
+
+#### Password Validation
+
+```python
+import re
+
+def validate_password(password):
+    if (6 <= len(password) <= 16 and
+        re.search(r'[a-z]', password) and
+        re.search(r'[A-Z]', password) and
+        re.search(r'[0-9]', password) and
+        re.search(r'[$#@]', password)):
+        return True
+    return False
+
+# Example usage:
+passwords = ["Abc1$", "Password123", "A1$", "ValidPass123$", "Short1", "ThisIsTooLongPassword123$"]
+for pwd in passwords:
+    print(f"{pwd}: {'Valid' if validate_password(pwd) else 'Invalid'}")
+```
+
+**Output:**
+```
+Abc1$: Invalid
+Password123: Invalid
+A1$: Invalid
+ValidPass123$: Valid
+Short1: Invalid
+ThisIsTooLongPassword123$: Invalid
+```
