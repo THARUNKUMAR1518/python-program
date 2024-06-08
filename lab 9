@@ -1,0 +1,86 @@
+### Low Level
+
+1.Handling `ZeroDivisionError`
+
+try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+    print("Result:", result)
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+```
+
+2. Handling `ValueError`
+
+```python
+try:
+    num = int(input("Enter an integer: "))
+    print("Valid integer:", num)
+except ValueError:
+    print("Error: Input is not a valid integer.")
+```
+3. Handling `TypeError`
+
+try:
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    print("First number:", num1)
+    print("Second number:", num2)
+except ValueError:
+    print("Error: Inputs must be numerical.")
+```
+****************************************************************************************************
+### Medium Level
+
+1. Handling `FileNotFoundError`
+
+try:
+    with open("nonexistent_file.txt", 'r') as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("Error: File not found.")
+```
+
+2. Handling `IndexError`
+
+try:
+    my_list = [1, 2, 3]
+    index = int(input("Enter an index: "))
+    value = my_list[index]
+    print("Value at index:", value)
+except IndexError:
+    print("Error: Index out of range.")
+```
+************************************************************************************************************************
+### High Level
+
+#### Handling Multiple Exceptions
+
+try:
+   
+    num = int(input("Enter a number: "))
+    result = 100 / num
+    print("Result:", result)
+
+    num = int(input("Enter an integer: "))
+    print("Valid integer:", num)
+    
+    with open("nonexistent_file.txt", 'r') as file:
+        content = file.read()
+        print(content)
+
+    my_list = [1, 2, 3]
+    index = int(input("Enter an index: "))
+    value = my_list[index]
+    print("Value at index:", value)
+
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+except ValueError:
+    print("Error: Input is not a valid integer.")
+except FileNotFoundError:
+    print("Error: File not found.")
+except IndexError:
+    print("Error: Index out of range.")
+```.
